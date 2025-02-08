@@ -1,0 +1,35 @@
+---Download Teams meeting video using ffmpeg and clean using python--
+
+Step1:
+
+#Open teams recorded meeting video. It will open in sharepoint.
+ctrl+shift+c on sharepoint video page
+
+#go to Networking and type "videomanifest" in filter box and F5.
+
+
+#Copy URL and paste with below command in powershell (with quotes)
+ 
+
+ffmpeg -i "url" -codec copy Skillset_GitHub_Insights.mp4
+ 
+#for more info visit below link:
+
+https://www.lisenet.com/2022/how-to-download-view-only-teams-meeting-recording-video-from-sharepoint/
+
+ 
+Step2: 
+
+Trim using Python:
+
+from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
+ffmpeg_extract_subclip("video1.mp4", start_time, end_time, targetname="test.mp4")
+ 
+
+Example:
+
+from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
+
+#ffmpeg_extract_subclip("full.mp4", start_seconds, end_seconds, targetname="cut.mp4") /Example code
+
+ffmpeg_extract_subclip("full.mp4", 60, 300, targetname="cut.mp4")
