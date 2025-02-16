@@ -2,6 +2,7 @@ import os
 import subprocess
 from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
 
+#Download the video
 def download_video():
     print("\nStep 1: Open the Teams recorded meeting video in SharePoint.")
     print("Press Ctrl+Shift+C on the video page, go to Networking, type 'videomanifest' in the filter box, and press F5.")
@@ -19,6 +20,7 @@ def download_video():
     print(f"\nVideo saved as: {output_filename}")
     return output_filename
 
+#Trim the video
 def trim_video(input_video):
     start_time = int(input("Enter start time (in seconds) for trimming: "))
     end_time = int(input("Enter end time (in seconds) for trimming: "))
